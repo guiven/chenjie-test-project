@@ -28,7 +28,21 @@
     <TD><INPUT type="password" name="confirmPwd" maxlength="16"/></TD></TR>
   <TR>
     <TD><LABEL>手机号码：</LABEL> </TD>
-    <TD><INPUT type="text" name="userPhone" maxlength="11"/></TD></TR>
+    <TD><INPUT type="text" name="userPhone" maxlength="11"/></TD>
+    <TD>
+								<div id="div1" style="display: none;">
+									<div class="div2">
+										<div class="div3">
+											<img src="kaptcha.jpg" id="kaptchaImage" /> 
+											<br>
+											<input type="text" name="kaptcha" value="" /> 
+											<input type="submit" name="submit" value="submit" />
+										</div>
+									</div>
+								</div>
+							<input type="button" onclick="document.getElementById('div1').style.display='block' " tabindex="3" value="获取短信验证码">
+    </TD>
+  </TR>
   <TR align=right>
     <TD colSpan=2>&nbsp;</TD>
   </TR>
