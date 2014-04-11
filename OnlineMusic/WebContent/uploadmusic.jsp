@@ -12,18 +12,18 @@
 		<meta name="keywords" content="" />
 		<meta name="description" content="" />
 		<script type="text/javascript" src="js/jquery.js"></script>
-		<script type="text/javascript" src="js/nicejforms.js"></script>
+		<!-- <script type="text/javascript" src="js/nicejforms.js"></script> -->
 		<script type="text/javascript" src="js/thickbox.js"></script>
 		<link href="css/default.css" rel="stylesheet" type="text/css" />
 		<link href="css/thickbox.css" rel="stylesheet" type="text/css" />
 		<style type="text/css" media="screen">
 @import url(css/niceforms.css);
 </style>
-		<script type="text/javascript">
+<!-- 		<script type="text/javascript">
 $(document).ready(function(){
 	$.NiceJForms.build()
 });
-</script>
+</script> -->
 	</head>
 	<body>
 		<div id="header">

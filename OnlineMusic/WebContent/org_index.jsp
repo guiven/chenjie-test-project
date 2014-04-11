@@ -9,7 +9,7 @@
 		<meta name="keywords" content="" />
 		<meta name="description" content="" />
 		<script type="text/javascript" src="js/jquery.js"></script>
-		<script type="text/javascript" src="js/nicejforms.js"></script>
+		<!-- <script type="text/javascript" src="js/nicejforms.js"></script> -->
 		<script type="text/javascript" src="js/thickbox.js"></script>
 		<script type="text/javascript" src="js/audioplayer.js"></script>
 		<link href="css/default.css" rel="stylesheet" type="text/css" />
@@ -21,7 +21,7 @@
 		</style>
 		<script type="text/javascript">
 		$(document).ready(function(){
-			$.NiceJForms.build();
+			/* $.NiceJForms.build(); */
 			dopage('index_ajax.jsp?page=1');
 		});
 		

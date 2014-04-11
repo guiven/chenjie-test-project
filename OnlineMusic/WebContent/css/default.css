@@ -215,13 +215,13 @@ img.right {
 
 /* About Box */
 
-#about-box {
+/* #about-box {
 	width: 185px;
 	height: 162px;
 	padding: 70px 37px 0 35px;
 	font-size: 12px;
 	background: url(../images/img11.jpg) no-repeat left bottom;
-}
+} */
 
 #about-box h2 {
 	margin-bottom: 25px;

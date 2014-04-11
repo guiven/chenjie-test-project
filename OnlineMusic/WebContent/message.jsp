@@ -24,7 +24,7 @@
 		<meta name="keywords" content="" />
 		<meta name="description" content="" />
 		<script type="text/javascript" src="js/jquery.js"></script>
-		<script type="text/javascript" src="js/nicejforms.js"></script>
+		<!-- <script type="text/javascript" src="js/nicejforms.js"></script> -->
 		<script type="text/javascript" src="js/thickbox.js"></script>
 		<link href="css/table.css" rel="stylesheet" type="text/css" />
 		<link href="css/default.css" rel="stylesheet" type="text/css" />
@@ -33,9 +33,9 @@
 @import url(css/niceforms.css);
 </style>
 		<script type="text/javascript">
-		$(document).ready(function(){
+/* 		$(document).ready(function(){
 			$.NiceJForms.build()
-		});
+		}); */
 		
 		function selectAll(chk)
 		{

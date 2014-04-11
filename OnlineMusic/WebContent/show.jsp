@@ -34,7 +34,7 @@
 		<meta name="description" content="" />
 		<script type="text/javascript" src="js/jquery.js"></script>
 		<script type="text/javascript" src="js/jquery.form.js"></script>
-		<script type="text/javascript" src="js/nicejforms.js"></script>
+		<!-- <script type="text/javascript" src="js/nicejforms.js"></script> -->
 		<script type="text/javascript" src="js/audioplayer.js"></script>
 		<link href="css/table.css" rel="stylesheet" type="text/css" />
 		<link href="css/page.css" rel="stylesheet" type="text/css" />
@@ -47,7 +47,7 @@
 		<script type="text/javascript">
 		$(document).ready(function(){
 			dopage('show_ajax.jsp?id=<%=id%>');
-			$.NiceJForms.build();
+			/* $.NiceJForms.build(); */
 			var options = {
 				target:        '#message',   //输出信息
 				beforeSubmit:  validate,  //验证

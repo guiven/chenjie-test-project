@@ -8,23 +8,25 @@
 		<title>OnlineCamera</title>
 		<meta name="keywords" content="" />
 		<meta name="description" content="" />
-		<script type="text/javascript" src="js/jquery.js"></script>
-		<script type="text/javascript" src="js/nicejforms.js"></script>
+		<script type="text/javascript" src="js/jquery-1.9.0.js"></script>
+		<script type="text/javascript" src="js/formly.js"></script>
+		<script type="text/javascript" src="js/jquery.colorbox-min.js"></script>
+		<script type="text/javascript" src="js/jquery.validate.js"></script>
 		<script type="text/javascript" src="js/thickbox.js"></script>
 		<script type="text/javascript" src="js/audioplayer.js"></script>
 		<link href="css/default.css" rel="stylesheet" type="text/css" />
 		<link href="css/page.css" rel="stylesheet" type="text/css" />
 		<link href="css/thickbox.css" rel="stylesheet" type="text/css" />
 		<link rel="stylesheet" href="css/LoadingStatus.css" type="text/css" />
-		<style type="text/css" media="screen">
-			@import url(css/niceforms.css);
-		</style>
+		<link rel="stylesheet" href="css/formly.css" type="text/css" />
+		<link rel="stylesheet" href="css/colorbox.css" type="text/css" />
 		<script type="text/javascript">
-		$(document).ready(function(){
-			$.NiceJForms.build();
+			$(document).ready(function(){
+			$('.niceform').formly({'onBlur':false, 'theme':'Light'});
 			dopage('index_ajax.jsp?page=1');
+			$('a.test').colorbox({ opacity:0.5 , rel:'group1' });
 		});
-		
+
 		function dopage(ajaxurl){
 			$('#LoadingStatus').show();
 			$.ajax({url: ajaxurl,
@@ -57,6 +59,7 @@
 			}
 			});
 		}
+		
 		</script>
 	</head>
 	<body>
@@ -108,33 +111,23 @@
 							<%
 								if (session.getAttribute("PlutoUser") == null) {
 							%>
+						</p>
 						
-						<form action="login.action" method="post" class="niceform">
-							<label for="textinput">
-								&nbsp;&nbsp;用户名：
-							</label>
-							<br />
-							&nbsp;&nbsp;
-							<input type="text" id="textinput" name="userName" size="15"
-								maxlength="16" />
-							<br />
-							<label for="passwordinput">
-								&nbsp;&nbsp;密 码：
-							</label>
-							<br />
-							&nbsp;&nbsp;
-							<input type="password" id="passwordinput" name="userPwd"
-								size="15" maxlength="16" />
+						<form action="login.action" title="Sign up" subtitle="for exclusive beta access" width=230 method="post" class="niceform">
+
+							<input type="text" id="textinput" name="userName" place="用户名" require="true"/>
+
+							<input type="password" id="passwordinput" name="userPwd" require="true" label="Password" place="密码" />
 							<br />
 							<br />
 							&nbsp;&nbsp;&nbsp;&nbsp;
-							<a href="register.jsp?height=175&width=300&modal=true"
-								class="thickbox" title="我要注册">我要注册</a> &nbsp;&nbsp;
+<!-- 							<a href="register.jsp?height=400&width=475&modal=true"
+								class="thickbox" title="我要注册">我要注册</a> -->
+							<a href="register.jsp" id="open" class="test" title="我要注册">我要注册</a>
+							&nbsp;&nbsp;
 							<input type="submit" value="登  陆" />
-
 						</form>
-
-
+						  
 						<p></p>
 						<%
 							} else {
@@ -227,5 +220,5 @@
 				(c) 2013 onlinemusic
 			</p>
 		</div>
-	</body>
+</body>
 </html>

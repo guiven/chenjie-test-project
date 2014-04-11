@@ -9,11 +9,36 @@
 	<servlet>
 		<servlet-name>Kaptcha</servlet-name>
 		<servlet-class>com.google.code.kaptcha.servlet.KaptchaServlet</servlet-class>
+		<init-param>
+			<param-name>kaptcha.border</param-name>
+			<param-value>no</param-value>
+		</init-param>
+		<init-param>
+			<param-name>kaptcha.textproducer.char.length</param-name>
+			<param-value>4</param-value>
+		</init-param>
+		<init-param>
+			<param-name>kaptcha.image.width</param-name>
+			<param-value>100</param-value>
+		</init-param>
+		<init-param>
+			<param-name>kaptcha.image.height</param-name>
+			<param-value>25</param-value>
+		</init-param>
+		<init-param>
+			<param-name>kaptcha.textproducer.font.size</param-name>
+			<param-value>20</param-value>
+		</init-param>
+ 		<init-param>
+			<param-name>kaptcha.obscurificator.impl</param-name>
+			<param-value>com.google.code.kaptcha.impl.ShadowGimpy</param-value>
+		</init-param> 
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>Kaptcha</servlet-name>
 		<url-pattern>/kaptcha.jpg</url-pattern>
 	</servlet-mapping>
+
     <filter>
         <filter-name>struts2</filter-name>
         <filter-class>org.apache.struts2.dispatcher.FilterDispatcher</filter-class>
