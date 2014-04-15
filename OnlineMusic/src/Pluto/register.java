@@ -13,7 +13,10 @@ public class register extends ActionSupport {
 	private String userName = null;
 	private String userPwd = null;
 	private String confirmPwd = null;
-
+	private String email = null;
+	private String kaptcha = null;
+	private String userPhone = null;
+	
 	public String getUserName() {
 		return userName;
 	}
@@ -38,13 +41,42 @@ public class register extends ActionSupport {
 		this.confirmPwd = confirmPwd;
 	}
 
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getKaptcha() {
+		return kaptcha;
+	}
+
+	public void setKaptcha(String kaptcha) {
+		this.kaptcha = kaptcha;
+	}
+
+	public String getUserPhone() {
+		return userPhone;
+	}
+
+	public void setUserPhone(String userPhone) {
+		this.userPhone = userPhone;
+	}
+
 	public String execute() throws SQLException, IOException{
-		ServletActionContext.getResponse().setCharacterEncoding("GB2312");
+		ServletActionContext.getResponse().setCharacterEncoding("utf-8");
 		PrintWriter out = ServletActionContext.getResponse().getWriter();
 		ServletActionContext.getResponse().setHeader("Pragma", "No-cache");
 		ServletActionContext.getResponse().setHeader("Cache-Control",
 				"no-cache");
 		ServletActionContext.getResponse().setDateHeader("Expires", 0);
+		String kaptchaExpected = (String)ServletActionContext.getContext().getSession()
+				.get(com.google.code.kaptcha.Constants.KAPTCHA_SESSION_KEY);
+		if(!kaptcha.equals(kaptchaExpected)){
+			out.println(function.PlutoJump("验证码输入错误！", "index.jsp"));
+		}
 		if(function.isInvalid(userName) || function.isInvalid(userPwd) || function.isInvalid(confirmPwd)){
 			out.println(function.PlutoJump("用户名或密码输入错误！", "index.jsp"));
 		}

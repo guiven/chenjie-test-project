@@ -7,6 +7,7 @@
 	<constant name="struts.multipart.maxSize" value="10000000" />
 	<package name="Pluto" extends="struts-default">
 		<action name="register" class="Pluto.register"></action>
+		<action name="sendSMS" class="Pluto.sendSMS"></action>
 		<action name="login" class="Pluto.login"></action>
 		<action name="logout" class="Pluto.logout"></action>
 		<action name="uploadmusic" class="Pluto.uploadmusic">

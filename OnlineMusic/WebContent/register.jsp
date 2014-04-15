@@ -18,9 +18,24 @@
 							'kaptcha.jpg?' + Math.floor(Math.random() * 100)).fadeIn();
 				});
 	});
+	function test(){
+		if($('#kaptcha').val()=="")
+			alert("error!");
+	    $.ajax({
+	        type : "GET",
+	        url  : "sendSMS.action",
+	        data: null,
+	        //dataType : 'text',
+	        //data : "name="+$("#selectedCountry").val(),
+/* 	        success : function(){
+	        	alert("true!!")
+	        },
+	        error : alert("No values found..!!") */
+	      });         
+	}
+	
 	
 </script>
-
 </HEAD>
 <BODY>
 <DIV style="TEXT-ALIGN: center">
@@ -63,18 +78,24 @@
     <TD><LABEL>手机号码：</LABEL> </TD>
     <TD><INPUT type="text" name="userPhone" maxlength="11"/></TD>
     <TD>
-		<input type="button" onclick=" " value="获取短信验证码">
+    	<div id="div1" >
+		<input type="button" onclick="document.getElementById('div2').style.display='block';test();" value="获取短信验证码" />
+		</div>
     </TD>
-  </TR> 
-  <TR align=right>
-    <TD colSpan=2>&nbsp;</TD>
+    <TD>
+        <div id="div2" style="display:none">
+    	<input type="text" name="verifyCode" maxlength="5" size='4' require="true" display='none'/>
+    	</div>
+    </TD>
   </TR>
+  <TR>
+<!--   <TR align=right>
+    <TD colSpan=2>&nbsp;</TD>
+  </TR> -->
   <TR align=right>
     <TD colSpan=2>
     <div align="center">
       <INPUT id=Login type=submit value="注 册">
-      &nbsp;
-      <INPUT  type="reset" onclick=tb_remove() value="取 消" />
     </div>
     </TD></TR></TBODY></TABLE>
 </form>

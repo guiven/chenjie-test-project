@@ -11,20 +11,18 @@
 		<script type="text/javascript" src="js/jquery-1.9.0.js"></script>
 		<script type="text/javascript" src="js/formly.js"></script>
 		<script type="text/javascript" src="js/jquery.colorbox-min.js"></script>
-		<script type="text/javascript" src="js/jquery.validate.js"></script>
-		<script type="text/javascript" src="js/thickbox.js"></script>
 		<script type="text/javascript" src="js/audioplayer.js"></script>
 		<link href="css/default.css" rel="stylesheet" type="text/css" />
 		<link href="css/page.css" rel="stylesheet" type="text/css" />
-		<link href="css/thickbox.css" rel="stylesheet" type="text/css" />
+		<!-- <link href="css/thickbox.css" rel="stylesheet" type="text/css" /> -->
 		<link rel="stylesheet" href="css/LoadingStatus.css" type="text/css" />
 		<link rel="stylesheet" href="css/formly.css" type="text/css" />
 		<link rel="stylesheet" href="css/colorbox.css" type="text/css" />
 		<script type="text/javascript">
 			$(document).ready(function(){
+			$(".iframe").colorbox({iframe:true, innerWidth:590, innerHeight:525});
 			$('.niceform').formly({'onBlur':false, 'theme':'Light'});
 			dopage('index_ajax.jsp?page=1');
-			$('a.test').colorbox({ opacity:0.5 , rel:'group1' });
 		});
 
 		function dopage(ajaxurl){
@@ -123,7 +121,7 @@
 							&nbsp;&nbsp;&nbsp;&nbsp;
 <!-- 							<a href="register.jsp?height=400&width=475&modal=true"
 								class="thickbox" title="我要注册">我要注册</a> -->
-							<a href="register.jsp" id="open" class="test" title="我要注册">我要注册</a>
+							<a class='iframe' href="register.jsp">我要注册</a>
 							&nbsp;&nbsp;
 							<input type="submit" value="登  陆" />
 						</form>
