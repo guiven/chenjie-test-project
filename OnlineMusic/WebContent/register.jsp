@@ -39,7 +39,7 @@
             $("#btnCode").attr("disabled", true);
 			$.ajax({
 				type : "GET",
-				url : "sendSMS.action",
+				url : "sendSMS.action?userPhone=" + $("input[name='userPhone']").val(),
 				success : function(data){ alert("success");alert(data.state);},
 				error : function(){ alert("error");}
 			});

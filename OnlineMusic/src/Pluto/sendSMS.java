@@ -3,6 +3,7 @@ package Pluto;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
+import java.util.Calendar;
 
 import javax.servlet.http.HttpServletResponse;
 
@@ -42,7 +43,15 @@ public class sendSMS extends ActionSupport {
 		PrintWriter out = response.getWriter();
 		String msg = "{\"state\":\"" + "01" + "\"}";
 		out.write(msg);
-
+		String num = "";
+	    for (int i = 0; i < 4; i++) {
+	        num = num + (int)Math.floor(Math.random() * 10);
+	    }
+	    System.out.println(num);
+	    long timeNow = Calendar.getInstance().getTimeInMillis();
+	    java.sql.Timestamp ts = new java.sql.Timestamp(timeNow);
+	    DBConnection conn = new DBConnection();
+	    conn.execute("insert into vcode(phone,vcode,creattime) values('"+userPhone+"','"+ num +"','" + ts+"')");
 /*		String Url = "http://106.ihuyi.com/webservice/sms.php?method=Submit";
 		HttpClient client = new HttpClient(); 
 		PostMethod method = new PostMethod(Url); 
