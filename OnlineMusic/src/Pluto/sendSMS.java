@@ -1,12 +1,16 @@
 package Pluto;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.SQLException;
+
+import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.httpclient.HttpClient;
 import org.apache.commons.httpclient.HttpException;
 import org.apache.commons.httpclient.NameValuePair;
 import org.apache.commons.httpclient.methods.PostMethod;
+import org.apache.struts2.ServletActionContext;
 import org.dom4j.Document;
 import org.dom4j.DocumentException;
 import org.dom4j.DocumentHelper;
@@ -32,7 +36,13 @@ public class sendSMS extends ActionSupport {
 	
 	public String execute() throws SQLException, IOException{
 		
-		
+		HttpServletResponse response = ServletActionContext.getResponse();
+		response.setCharacterEncoding("utf-8");
+		response.setContentType("application/json; charset=UTF-8");
+		PrintWriter out = response.getWriter();
+		String msg = "{\"state\":\"" + "01" + "\"}";
+		out.write(msg);
+
 /*		String Url = "http://106.ihuyi.com/webservice/sms.php?method=Submit";
 		HttpClient client = new HttpClient(); 
 		PostMethod method = new PostMethod(Url); 

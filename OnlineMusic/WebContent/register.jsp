@@ -9,7 +9,7 @@
 <script type="text/javascript">
 	$(document).ready(function(){
 	$('#register').formly();
-	$('.niceform').formly({'onBlur':false, 'theme':'Light'});
+	$('.niceform').formly({'theme':'Light'});
 	});
 	$(function() {
 		$('#kaptchaImage').click(
@@ -18,22 +18,34 @@
 							'kaptcha.jpg?' + Math.floor(Math.random() * 100)).fadeIn();
 				});
 	});
-	function test(){
-		if($('#kaptcha').val()=="")
-			alert("error!");
-	    $.ajax({
-	        type : "GET",
-	        url  : "sendSMS.action",
-	        data: null,
-	        //dataType : 'text',
-	        //data : "name="+$("#selectedCountry").val(),
-/* 	        success : function(){
-	        	alert("true!!")
-	        },
-	        error : alert("No values found..!!") */
-	      });         
+
+	function myTime(i){
+		if(i>=1){
+			$("#btnCode").val(i + "秒之后点击获取");
+			setTimeout(function(){myTime(i-1);},1000);
+		}else if(i==0){
+			$("#btnCode").val("点击获取验证码");
+			$("#btnCode").attr("disabled", false);
+		}
 	}
 	
+	function getVCode() {
+		if ($("input[name='kaptcha']").val() == "") {
+			alert("请输入验证码");
+		}else if($("input[name='userPhone']").val() == ""){
+			alert("请输入手机号");
+		} 
+		else {
+            $("#btnCode").attr("disabled", true);
+			$.ajax({
+				type : "GET",
+				url : "sendSMS.action",
+				success : function(data){ alert("success");alert(data.state);},
+				error : function(){ alert("error");}
+			});
+			myTime(5);
+		}
+	}
 	
 </script>
 </HEAD>
@@ -51,10 +63,10 @@
   </TR>
   <TR>
     <TD><LABEL>用户名：</LABEL> </TD>
-    <TD><input type="text" name="userName" require="true" place="username" maxlength="16"/></TD></TR>
+    <TD><input type="text" name="userName" require="true" label="user name" place="用户名" maxlength="16"/></TD></TR>
   <TR>
     <TD><LABEL>用户密码：</LABEL> </TD>
-    <TD><input type="password" name="userPwd" require="true" place="password" maxlength="16"/></TD>
+    <TD><input type="password" name="userPwd" require="true" label="password" place="password" maxlength="16"/></TD>
   </TR>
   <TR>
     <TD><LABEL>确认密码：</LABEL> </TD>
@@ -76,10 +88,10 @@
   </TR>		
   <TR>
     <TD><LABEL>手机号码：</LABEL> </TD>
-    <TD><INPUT type="text" name="userPhone" maxlength="11"/></TD>
+    <TD><INPUT type="text" name="userPhone" require="true" maxlength="11"/></TD>
     <TD>
     	<div id="div1" >
-		<input type="button" onclick="document.getElementById('div2').style.display='block';test();" value="获取短信验证码" />
+		<input type="button" id="btnCode" onclick="document.getElementById('div2').style.display='block';JavaScript:getVCode()" value="获取短信验证码" />
 		</div>
     </TD>
     <TD>
@@ -96,6 +108,8 @@
     <TD colSpan=2>
     <div align="center">
       <INPUT id=Login type=submit value="注 册">
+      &nbsp;&nbsp;
+      <INPUT id=Reset type=reset value="重置">
     </div>
     </TD></TR></TBODY></TABLE>
 </form>

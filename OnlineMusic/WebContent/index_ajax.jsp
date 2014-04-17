@@ -3,8 +3,7 @@
 	pageEncoding="UTF-8"%>
 <jsp:useBean id="conn" class="Pluto.DBConnection" scope="session" />
 <link href="css/thickbox.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript" src="js/jquery.js"></script>
-<!-- <script type="text/javascript" src="js/nicejforms.js"></script> -->
+<!-- <script type="text/javascript" src="js/jquery.js"></script> -->
 <%
 	response.setHeader("Expires", "Sat, 6 May 1995 12:00:00 GMT");
 	response.setHeader("Cache-Control",

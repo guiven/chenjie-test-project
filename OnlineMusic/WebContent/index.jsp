@@ -20,8 +20,8 @@
 		<link rel="stylesheet" href="css/colorbox.css" type="text/css" />
 		<script type="text/javascript">
 			$(document).ready(function(){
-			$(".iframe").colorbox({iframe:true, innerWidth:590, innerHeight:525});
-			$('.niceform').formly({'onBlur':false, 'theme':'Light'});
+			$(".iframe").colorbox({iframe:true, innerWidth:560, innerHeight:480, escKey:true});
+			$('.niceform').formly({'theme':'Light'});
 			dopage('index_ajax.jsp?page=1');
 		});
 

@@ -5,6 +5,7 @@ import java.io.PrintWriter;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.apache.struts2.ServletActionContext;
@@ -34,7 +35,9 @@ public class login extends ActionSupport {
 	}
 
 	public String execute() throws IOException, SQLException {
-		ServletActionContext.getResponse().setCharacterEncoding("GB2312");
+		HttpServletResponse response = ServletActionContext.getResponse();
+		response.setCharacterEncoding("utf-8");
+//		response.setContentType("application/json; charset=UTF-8");
 		PrintWriter out = ServletActionContext.getResponse().getWriter();
 		HttpSession session = ServletActionContext.getRequest().getSession();
 		ServletActionContext.getResponse().setHeader("Pragma", "No-cache");

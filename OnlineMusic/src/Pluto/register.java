@@ -75,25 +75,26 @@ public class register extends ActionSupport {
 		String kaptchaExpected = (String)ServletActionContext.getContext().getSession()
 				.get(com.google.code.kaptcha.Constants.KAPTCHA_SESSION_KEY);
 		if(!kaptcha.equals(kaptchaExpected)){
-			out.println(function.PlutoJump("验证码输入错误！", "index.jsp"));
+			out.println(function.PlutoJump("验证码输入错误！", "register.jsp"));
 		}
-		if(function.isInvalid(userName) || function.isInvalid(userPwd) || function.isInvalid(confirmPwd)){
-			out.println(function.PlutoJump("用户名或密码输入错误！", "index.jsp"));
+		else if(function.isInvalid(userName) || function.isInvalid(userPwd) || function.isInvalid(confirmPwd)){
+			out.println(function.PlutoJump("用户名或密码输入错误！", "register.jsp"));
 		}
-		if(!userPwd.equals(confirmPwd)){
-			out.println(function.PlutoJump("两次输入的密码不一致！", "index.jsp"));
-		}
+		else if(!userPwd.equals(confirmPwd)){
+			out.println(function.PlutoJump("两次输入的密码不一致！", "register.jsp"));
+		}else{
 		DBConnection conn = new DBConnection();
 		ResultSet rs = conn.executeQuery("select * from user where name = '"+userName+"'");
 		if(rs.next()){
-			out.println(function.PlutoJump("用户名已存在！", "index.jsp"));
+			out.println(function.PlutoJump("用户名已存在！", "register.jsp"));
 		}else{
-			boolean insert = conn.execute("insert into user(name,pwd) values('"+userName+"','"+function.MD5Encode(userPwd)+"')");
+			boolean insert = conn.execute("insert into user(name,pwd,email,phone) values('"+userName+"','"+function.MD5Encode(userPwd)+"','"+email+"','"+userPhone+"')");
 			if(insert){
-				out.println(function.PlutoJump("注册成功，请登陆！", "index.jsp"));
+				out.println(function.PlutoComplete("注册成功，请登陆！"));
 			}else{
-				out.println(function.PlutoJump("注册失败！", "index.jsp"));
+				out.println(function.PlutoComplete("注册失败！"));
 			}
+		}
 		}
 		return null;
 	}

@@ -145,10 +145,33 @@ public class function {
 		String str = null;
 		try {
 			str = "<script language='javascript'>alert('" + errorStr
-					+ "');location.href='" + jumpTo + "';</script>";
+					+ "');" 
+//					+"parent.$.colorbox.close()"
+					+"location.href='" + jumpTo + "';</script>";
+//			+"</script>";
 		} catch (Exception e) {
 			str = "<script language='javascript'>alert('" + errorStr
-					+ "');location.href='" + jumpTo + "';</script>";
+					+ "');" 
+//					+"parent.$.colorbox.close()"
+					+"location.href='" + jumpTo + "';</script>";
+//			+"</script>";
+		}
+		return str;
+	}
+	
+	
+	public static String PlutoComplete(String errorStr) {
+		String str = null;
+		try {
+			str = "<script language='javascript'>alert('" + errorStr
+					+ "');" 
+					+"parent.$.colorbox.close()"
+					+"</script>";
+		} catch (Exception e) {
+			str = "<script language='javascript'>alert('" + errorStr
+					+ "');" 
+					+"parent.$.colorbox.close()"
+					+"</script>";
 		}
 		return str;
 	}
