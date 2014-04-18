@@ -20,9 +20,12 @@
 		<link rel="stylesheet" href="css/colorbox.css" type="text/css" />
 		<script type="text/javascript">
 			$(document).ready(function(){
-			$(".iframe").colorbox({iframe:true, innerWidth:560, innerHeight:480, escKey:true});
-			$('.niceform').formly({'theme':'Light'});
-			dopage('index_ajax.jsp?page=1');
+				$('.niceform').formly({'theme':'Light'});
+				$(".iframe").colorbox(
+						{iframe:true, innerWidth:445, innerHeight:360, escKey:true}
+				);
+			//dopage('index_ajax.jsp?page=1');
+				dopage('content_ajax.jsp');
 		});
 
 		function dopage(ajaxurl){
@@ -67,7 +70,7 @@
 					OnlineCamera
 				</h1>
 				<h2>
-					
+					for Beta Test
 				</h2>
 			</div>
 			<div id="menu">
@@ -156,6 +159,10 @@
 							如果您有音乐分享，您可以点我进行
 							<a href="uploadmusic.jsp" style="color: red">[上传音乐]</a>！
 							<br />
+						</p>
+						<p>
+							修改个人信息
+							<a class='iframe' href="register.jsp?userName=<%=userName%>" style="color: #FF0000">[个人信息]</a>！
 						</p>
 						<p>
 							退出请点

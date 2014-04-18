@@ -19,11 +19,11 @@
 		</init-param>
 		<init-param>
 			<param-name>kaptcha.image.width</param-name>
-			<param-value>100</param-value>
+			<param-value>120</param-value>
 		</init-param>
 		<init-param>
 			<param-name>kaptcha.image.height</param-name>
-			<param-value>25</param-value>
+			<param-value>30</param-value>
 		</init-param>
 		<init-param>
 			<param-name>kaptcha.textproducer.font.size</param-name>

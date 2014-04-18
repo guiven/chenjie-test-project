@@ -145,15 +145,10 @@ public class function {
 		String str = null;
 		try {
 			str = "<script language='javascript'>alert('" + errorStr
-					+ "');" 
-//					+"parent.$.colorbox.close()"
-					+"location.href='" + jumpTo + "';</script>";
-//			+"</script>";
+					+ "');location.href='" + jumpTo + "';</script>";
 		} catch (Exception e) {
 			str = "<script language='javascript'>alert('" + errorStr
-					+ "');" 
-//					+"parent.$.colorbox.close()"
-					+"location.href='" + jumpTo + "';</script>";
+					+ "');location.href='" + jumpTo + "';</script>";
 //			+"</script>";
 		}
 		return str;
